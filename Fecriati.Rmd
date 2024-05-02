@@ -91,3 +91,69 @@ WordPress'e İthalat: **'WP All Import'** eklentisi kullanılarak CSV dosyası W
 Test ve Doğrulama: Veri yükleme işlemi tamamlandıktan sonra, verilerin doğru bir şekilde WordPress'e aktarıldığı kontrol edilecektir.
 
 
+# Q3 : İş Tanımı
+
+## Kuruluşun İsmi
+FECR-I ATI
+
+## Sektör
+E-Ticaret 
+
+## Ana Aktiviteler ve Rutin Operasyonlar
+
+1. **Ürün Yönetimi:**
+   - Ürünlerin listelenmesi, fiyatlandırılması ve stok takibi.
+   - Yeni ürünlerin araştırılması ve kataloglara eklenmesi.
+   - Ürün bilgilerinin güncellenmesi ve kalite kontrol süreçleri.
+
+2. **Müşteri İlişkileri Yönetimi:**
+   - Müşteri sorularına ve şikayetlerine hızlı yanıt verilmesi.
+   - Müşteri geri bildirimlerinin analizi ve memnuniyetin artırılması çalışmaları.
+
+3. **Pazarlama ve Satış:**
+   - Çevrimiçi reklam kampanyalarının yürütülmesi ve sosyal medya yönetimi.
+   - E-posta bültenleri aracılığıyla müşterilere düzenli promosyon ve güncellemelerin gönderilmesi.
+   - SEO (Arama Motoru Optimizasyonu) çalışmaları ve içerik pazarlama stratejileri.
+
+4. **Sipariş İşleme ve Lojistik:**
+   - Siparişlerin alınması, işlenmesi ve paketlenmesi.
+   - Kargo şirketleriyle koordinasyon ve müşterilere teslimat süreçlerinin yönetimi.
+
+5. **Finans ve Raporlama:**
+   - Günlük, haftalık ve aylık satış raporlarının hazırlanması.
+   - Muhasebe işlemleri ve finansal raporlama.
+
+## Gelir Modeli
+
+Bu e-ticaret firması, ürün satışlarından elde edilen gelir üzerine kuruludur. Firma, çeşitli kategorilerde ürünler sunarak doğrudan tüketicilere satış yapmaktadır. Gelirler, ürün satış fiyatları ve satılan ürün miktarına bağlı olarak değişiklik gösterir. Ayrıca, özel kampanyalar, sezonluk indirimler ve müşteri sadakat programları aracılığıyla müşteri harcamalarını arttırma stratejileri uygulanmaktadır.
+
+## İşin Zorlukları ve Avantajları
+
+### Zorluklar:
+- Yüksek rekabet ortamı ve fiyat savaşları.
+- Müşteri beklentilerinin sürekli artması ve değişen tüketici alışkanlıkları.
+- Lojistik ve tedarik zinciri yönetiminde yaşanan aksaklıklar.
+- Dijital pazarlama ve SEO stratejilerinde sürekli güncel kalma ihtiyacı.
+
+### Avantajlar:
+- Düşük işletme maliyetleri sayesinde fiziksel mağazalara göre daha rekabetçi fiyatlar sunulabilir.
+- Geniş bir müşteri kitlesine, coğrafi kısıtlamalar olmaksızın ulaşılabilir.
+- Veri analizi ve müşteri davranışları üzerine yapılan çalışmalar, hedefli pazarlama kampanyaları yapılmasını sağlar.
+- Çevik ve esnek iş modeli, hızlı karar alma ve adaptasyonu destekler.
+
+## Rakipler ve Rekabet Durumu
+
+### Rakipler:
+- **Yerel E-ticaret Siteleri:** Aynı coğrafi bölgede hizmet veren diğer e-ticaret siteleri.
+- **Global Devler:** Amazon, eBay gibi uluslararası e-ticaret platformları.
+
+### Rakip Avantajları:
+- Daha geniş ürün yelpazesi ve marka tanınırlığı.
+- Lojistik ve tedarik zincirinde daha etkin yönetim ve düşük maliyetler.
+
+### Rakip Dezavantajları:
+- Yerel pazarın özelliklerine ve müşteri ihtiyaçlarına daha az odaklanma.
+- Müşteri hizmetleri ve destekte yerel firmalar kadar hızlı ve kişisel olamama.
+
+
+
