@@ -1,0 +1,60 @@
+---
+title: "Bölüm I : Ekip 5"
+output:
+  html_document:
+    df_print: paged
+---
+
+### Ekip Üyeleri:
+
+190401034-Hatice Sudenas Çapacı
+200401042-Yusuf Talha Kaya
+200401030-Mustafa Koçer
+190401046-Abdulkadir Gür
+200401056-Mert Pamuk
+
+# Q1 : IMS platformunun belirlenmesi
+
+## Platformun İsmi
+
+**WordPress** (CMS)
+
+## Lisansı
+
+WordPress, **GPL (GNU Genel Kamu Lisansı)** altında lisanslanmıştır. Bu lisans, yazılımın ücretsiz olarak kullanılmasına, değiştirilmesine ve dağıtılmasına olanak tanır.
+
+## Kısa Tarihçesi
+
+WordPress, 2003 yılında Matt Mullenweg ve Mike Little tarafından başlatılan bir proje olarak hayata geçirilmiştir. Başlangıçta basit bir blog yazılımı olarak tasarlanan WordPress, zamanla gelişerek dünya çapında milyonlarca web sitesine ev sahipliği yapacak bir platforma dönüşmüştür.
+
+## Platformun Kullanıcıya Sunduğu Özellikler
+
+WordPress kullanıcılarına aşağıdaki özellikleri sunar:
+
+- **Tema Desteği**: Kullanıcılar, geniş bir tema kütüphanesinden dilediklerini seçebilir veya kendi özel temalarını geliştirebilirler.
+- **Eklenti Mimarisi**: 50,000'den fazla eklenti ile sitenin işlevselliğini artırabilirsiniz.
+- **SEO Optimizasyonu**: SEO dostu yapılar ve eklentiler ile sitenizi arama motorlarına daha uyumlu hale getirebilirsiniz.
+- **Kullanıcı ve Rol Yönetimi**: Farklı yetkilerle kullanıcı hesapları oluşturabilirsiniz.
+- **Medya Yönetimi**: Görsel ve video dosyalarınızı kolayca yükleyebilir ve yönetebilirsiniz.
+- **Çoklu-dil Desteği**: WPML gibi eklentiler aracılığıyla çok dilli siteler oluşturabilirsiniz.
+
+## Platformun Kullandığı Yazılım, DB ve Diğer Teknolojiler
+
+- **Dil**: PHP
+- **Veritabanı**: MySQL veya MariaDB
+- **Sunucu Yazılımı**: Apache veya Nginx
+- **Diğer Teknolojiler**: HTML, CSS, JavaScript
+
+## Platform API
+
+WordPress, REST API aracılığıyla uygulama geliştiricilere aşağıdaki işlemleri yapma imkanı tanır:
+
+- **İçerik Yönetimi**: Yazılar, sayfalar, medya dosyaları.
+- **Kullanıcı Yönetimi**: Kullanıcı bilgileri, roller ve yetkiler.
+- **Tema ve Eklenti Yönetimi**: Tema ve eklentilerin yüklenmesi, güncellenmesi, kaldırılması.
+- **Ayarlar**: Site ayarlarının yönetimi.
+
+## Seçim Sebepleri
+
+WordPress'i tercih etme nedenlerim arasında; kullanım kolaylığı, geniş eklenti ekosistemi, ve kuvvetli topluluk desteği yer alır. Açık kaynak olması, projelerde tam esneklik ve özelleştirme özgürlüğü sağlar. Geniş kullanımı sayesinde, platform hakkında bol miktarda kaynak ve yardım bulunması geliştirme sürecini kolaylaştırır.
+
