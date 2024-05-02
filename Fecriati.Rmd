@@ -1,0 +1,194 @@
+---
+title: "Bölüm I : Ekip 5"
+output:
+  html_document:
+    df_print: paged
+---
+
+### Ekip Üyeleri:
+
+190401034-Hatice Sudenas Çapacı
+200401042-Yusuf Talha Kaya
+200401030-Mustafa Koçer
+190401046-Abdulkadir Gür
+200401056-Mert Pamuk
+
+# Q1 : IMS platformunun belirlenmesi
+
+## Platformun İsmi
+
+**WordPress** (CMS)
+
+## Lisansı
+
+WordPress, **GPL (GNU Genel Kamu Lisansı)** altında lisanslanmıştır. Bu lisans, yazılımın ücretsiz olarak kullanılmasına, değiştirilmesine ve dağıtılmasına olanak tanır.
+
+## Kısa Tarihçesi
+
+WordPress, 2003 yılında Matt Mullenweg ve Mike Little tarafından başlatılan bir proje olarak hayata geçirilmiştir. Başlangıçta basit bir blog yazılımı olarak tasarlanan WordPress, zamanla gelişerek dünya çapında milyonlarca web sitesine ev sahipliği yapacak bir platforma dönüşmüştür.
+
+## Platformun Kullanıcıya Sunduğu Özellikler
+
+WordPress kullanıcılarına aşağıdaki özellikleri sunar:
+
+- **Tema Desteği**: Kullanıcılar, geniş bir tema kütüphanesinden dilediklerini seçebilir veya kendi özel temalarını geliştirebilirler.
+- **Eklenti Mimarisi**: 50,000'den fazla eklenti ile sitenin işlevselliğini artırabilirsiniz.
+- **SEO Optimizasyonu**: SEO dostu yapılar ve eklentiler ile sitenizi arama motorlarına daha uyumlu hale getirebilirsiniz.
+- **Kullanıcı ve Rol Yönetimi**: Farklı yetkilerle kullanıcı hesapları oluşturabilirsiniz.
+- **Medya Yönetimi**: Görsel ve video dosyalarınızı kolayca yükleyebilir ve yönetebilirsiniz.
+- **Çoklu-dil Desteği**: WPML gibi eklentiler aracılığıyla çok dilli siteler oluşturabilirsiniz.
+
+## Platformun Kullandığı Yazılım, DB ve Diğer Teknolojiler
+
+- **Dil**: PHP
+- **Veritabanı**: MySQL veya MariaDB
+- **Sunucu Yazılımı**: Apache veya Nginx
+- **Diğer Teknolojiler**: HTML, CSS, JavaScript
+
+## Platform API
+
+WordPress, REST API aracılığıyla uygulama geliştiricilere aşağıdaki işlemleri yapma imkanı tanır:
+
+- **İçerik Yönetimi**: Yazılar, sayfalar, medya dosyaları.
+- **Kullanıcı Yönetimi**: Kullanıcı bilgileri, roller ve yetkiler.
+- **Tema ve Eklenti Yönetimi**: Tema ve eklentilerin yüklenmesi, güncellenmesi, kaldırılması.
+- **Ayarlar**: Site ayarlarının yönetimi.
+
+## Seçim Sebepleri
+
+WordPress'i tercih etme nedenlerim arasında; kullanım kolaylığı, geniş eklenti ekosistemi, ve kuvvetli topluluk desteği yer alır. Açık kaynak olması, projelerde tam esneklik ve özelleştirme özgürlüğü sağlar. Geniş kullanımı sayesinde, platform hakkında bol miktarda kaynak ve yardım bulunması geliştirme sürecini kolaylaştırır.
+
+
+
+# Q2 : Dataset tanımı
+
+## Veri Seti Adı: E-Ticaret Ürün Veri Seti
+
+Kaynak: Kaggle - https://www.kaggle.com/datasets/datascientist97/e-commerece-sales-data-2024/data?select=product_details.csv
+
+### İçerik:
+Bu veri seti, çeşitli ürünlerin satış bilgilerini içerir. Veriler, anonimleştirilmiş kullanıcı işlemleri ve ürün bilgilerini kapsamaktadır.
+
+product_details.csv: Ürün bilgilerini içeren veri seti. Ürün adı, marka, kategori, fiyat, stok durumu gibi özellikler bulunmaktadır. Bu tabloda toplam 10002 satır veri bulunmaktadır.
+
+customer_details.csv: Müşteri demografik bilgileri ve satın alma bilgilerini içeren veri seti. Müşteri ID, yaş, cinsiyet, satın alınan ürün, kategori, harcama miktarı gibi özellikler içerir. Bu tabloda toplam 3900 satır veri bulunmaktadır.
+
+E-commerece_sales_data_2024.csv: Müşteri ve ürün etkileşimlerini içeren veri seti. Kullanıcı ID, ürün ID, etkileşim tipi ve zaman damgası gibi özellikler içerir. Bu tabloda toplam 2999 satır veri bulunmaktadır.
+
+## Verinin Üretimi ve Toplanması:
+Veri seti, bir e-ticaret platformunun gerçek işlem kayıtlarından derlenmiştir. Veriler, müşteri satın alma işlemleri sırasında otomatik olarak toplanmış ve anonim hale getirilmiştir.
+
+#### Format: CSV
+
+#### Boyut: Yaklaşık 20 MB
+
+### Veri İthalatı ve Entegrasyon Süreci
+
+#### İthalat Planı:
+
+Veri Temizleme ve Hazırlığı: İlk adımda, veri setindeki eksik değerler temizlenecek ve veri tipleri doğrulanacaktır.
+WordPress'e İthalat: **'WP All Import'** eklentisi kullanılarak CSV dosyası WordPress içeriğine aktarılacak. Ürün bilgileri özel gönderi türleri olarak kaydedilecektir.
+Test ve Doğrulama: Veri yükleme işlemi tamamlandıktan sonra, verilerin doğru bir şekilde WordPress'e aktarıldığı kontrol edilecektir.
+
+
+# Q3 : İş Tanımı
+
+## Kuruluşun İsmi
+FECR-I ATI
+
+## Sektör
+E-Ticaret 
+
+## Ana Aktiviteler ve Rutin Operasyonlar
+
+1. **Ürün Yönetimi:**
+   - Ürünlerin listelenmesi, fiyatlandırılması ve stok takibi.
+   - Yeni ürünlerin araştırılması ve kataloglara eklenmesi.
+   - Ürün bilgilerinin güncellenmesi ve kalite kontrol süreçleri.
+
+2. **Müşteri İlişkileri Yönetimi:**
+   - Müşteri sorularına ve şikayetlerine hızlı yanıt verilmesi.
+   - Müşteri geri bildirimlerinin analizi ve memnuniyetin artırılması çalışmaları.
+
+3. **Pazarlama ve Satış:**
+   - Çevrimiçi reklam kampanyalarının yürütülmesi ve sosyal medya yönetimi.
+   - E-posta bültenleri aracılığıyla müşterilere düzenli promosyon ve güncellemelerin gönderilmesi.
+   - SEO (Arama Motoru Optimizasyonu) çalışmaları ve içerik pazarlama stratejileri.
+
+4. **Sipariş İşleme ve Lojistik:**
+   - Siparişlerin alınması, işlenmesi ve paketlenmesi.
+   - Kargo şirketleriyle koordinasyon ve müşterilere teslimat süreçlerinin yönetimi.
+
+5. **Finans ve Raporlama:**
+   - Günlük, haftalık ve aylık satış raporlarının hazırlanması.
+   - Muhasebe işlemleri ve finansal raporlama.
+
+## Gelir Modeli
+
+Bu e-ticaret firması, ürün satışlarından elde edilen gelir üzerine kuruludur. Firma, çeşitli kategorilerde ürünler sunarak doğrudan tüketicilere satış yapmaktadır. Gelirler, ürün satış fiyatları ve satılan ürün miktarına bağlı olarak değişiklik gösterir. Ayrıca, özel kampanyalar, sezonluk indirimler ve müşteri sadakat programları aracılığıyla müşteri harcamalarını arttırma stratejileri uygulanmaktadır.
+
+## İşin Zorlukları ve Avantajları
+
+### Zorluklar:
+- Yüksek rekabet ortamı ve fiyat savaşları.
+- Müşteri beklentilerinin sürekli artması ve değişen tüketici alışkanlıkları.
+- Lojistik ve tedarik zinciri yönetiminde yaşanan aksaklıklar.
+- Dijital pazarlama ve SEO stratejilerinde sürekli güncel kalma ihtiyacı.
+
+### Avantajlar:
+- Düşük işletme maliyetleri sayesinde fiziksel mağazalara göre daha rekabetçi fiyatlar sunulabilir.
+- Geniş bir müşteri kitlesine, coğrafi kısıtlamalar olmaksızın ulaşılabilir.
+- Veri analizi ve müşteri davranışları üzerine yapılan çalışmalar, hedefli pazarlama kampanyaları yapılmasını sağlar.
+- Çevik ve esnek iş modeli, hızlı karar alma ve adaptasyonu destekler.
+
+## Rakipler ve Rekabet Durumu
+
+### Rakipler:
+- **Yerel E-ticaret Siteleri:** Aynı coğrafi bölgede hizmet veren diğer e-ticaret siteleri.
+- **Global Devler:** Amazon, eBay gibi uluslararası e-ticaret platformları.
+
+### Rakip Avantajları:
+- Daha geniş ürün yelpazesi ve marka tanınırlığı.
+- Lojistik ve tedarik zincirinde daha etkin yönetim ve düşük maliyetler.
+
+### Rakip Dezavantajları:
+- Yerel pazarın özelliklerine ve müşteri ihtiyaçlarına daha az odaklanma.
+- Müşteri hizmetleri ve destekte yerel firmalar kadar hızlı ve kişisel olamama.
+
+
+# Q4: İyileştirme (Optimizasyon) Stratejisi
+
+## Amaç ve Fayda
+
+Projede yapılacak olan veri analizi, özellikle müşteri davranışları ve satış trendleri üzerine odaklanacak. Amaç, e-ticaret platformunda müşteri memnuniyetini artırarak satışları maksimize etmek ve pazar payını genişletmektir. Özel olarak, aşağıdaki faydaların sağlanması hedeflenmektedir:
+
+1. **Müşteri Sadakatini Artırma**: Müşteri alışveriş verileri analiz edilerek, müşteri memnuniyetini artırıcı tedbirler alınacak.
+2. **Karlılık Arttırılması**: En çok satan ürünler ve kâr marjları üzerinde detaylı analizler yaparak, karlılık oranı yüksek ürünlerin stok ve tanıtım stratejilerini optimize edeceğiz.
+3. **Pazar Genişletilmesi**: Müşteri demografik bilgileri ve satın alma alışkanlıkları incelenerek yeni pazar segmentleri belirlenecek ve bu segmentlere yönelik pazarlama stratejileri geliştirilecek.
+4. **Üretim ve Tedarik Zinciri Optimizasyonu**: En çok talep gören ürünlerin tedarik süreçleri analiz edilerek, tedarik zinciri maliyetleri düşürülecek ve teslimat süreçleri hızlandırılacak.
+
+## Uygulanacak Metodoloji
+
+### Veri Temizleme ve Hazırlama
+- Eksik veya hatalı verilerin temizlenmesi.
+- Verilerin analize uygun hale getirilmesi için uygun formata dönüştürülmesi.
+
+### Veri Analizi
+- **Zaman Serisi Analizi**: Satış trendlerini zaman içinde analiz ederek, belirli dönemlerdeki satış artışlarını anlamak.
+- **Kümeleme Analizi**: Müşterileri benzer özelliklerine göre segmentlere ayırma, böylece daha hedeflenmiş pazarlama stratejileri geliştirme.
+
+### Raporlama ve Görselleştirme
+- Elde edilen bulguların raporlanması ve görsel sunumlarla desteklenmesi.
+- İlgili departmanlara yönelik aksiyon planlarının sunulması.
+
+### Strateji Uygulama ve İzleme
+- Analiz sonuçlarına dayanarak geliştirilen stratejilerin uygulanması.
+- Uygulanan stratejilerin etkinliğinin izlenmesi ve gerekirse ayarlamaların yapılması.
+
+## Beklenen Sonuçlar
+- Müşteri başına düşen gelirin artması.
+- Pazar payının ve müşteri tabanının genişlemesi.
+- Operasyonel maliyetlerin azalması ve genel verimliliğin artması.
+
+Bu iyileştirme stratejisi, şirketin genel performansını artırarak rekabet avantajı sağlamayı amaçlamaktadır. Veri analizinin derinlemesine uygulanması, işletme için stratejik karar alma sürecini destekleyecek ve uzun vadeli başarıya katkıda bulunacaktır.
+
