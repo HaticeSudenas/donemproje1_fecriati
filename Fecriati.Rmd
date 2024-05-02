@@ -58,3 +58,36 @@ WordPress, REST API aracılığıyla uygulama geliştiricilere aşağıdaki işl
 
 WordPress'i tercih etme nedenlerim arasında; kullanım kolaylığı, geniş eklenti ekosistemi, ve kuvvetli topluluk desteği yer alır. Açık kaynak olması, projelerde tam esneklik ve özelleştirme özgürlüğü sağlar. Geniş kullanımı sayesinde, platform hakkında bol miktarda kaynak ve yardım bulunması geliştirme sürecini kolaylaştırır.
 
+
+
+# Q2 : Dataset tanımı
+
+## Veri Seti Adı: E-Ticaret Ürün Veri Seti
+
+Kaynak: Kaggle - https://www.kaggle.com/datasets/datascientist97/e-commerece-sales-data-2024/data?select=product_details.csv
+
+### İçerik:
+Bu veri seti, çeşitli ürünlerin satış bilgilerini içerir. Veriler, anonimleştirilmiş kullanıcı işlemleri ve ürün bilgilerini kapsamaktadır.
+
+product_details.csv: Ürün bilgilerini içeren veri seti. Ürün adı, marka, kategori, fiyat, stok durumu gibi özellikler bulunmaktadır. Bu tabloda toplam 10002 satır veri bulunmaktadır.
+
+customer_details.csv: Müşteri demografik bilgileri ve satın alma bilgilerini içeren veri seti. Müşteri ID, yaş, cinsiyet, satın alınan ürün, kategori, harcama miktarı gibi özellikler içerir. Bu tabloda toplam 3900 satır veri bulunmaktadır.
+
+E-commerece_sales_data_2024.csv: Müşteri ve ürün etkileşimlerini içeren veri seti. Kullanıcı ID, ürün ID, etkileşim tipi ve zaman damgası gibi özellikler içerir. Bu tabloda toplam 2999 satır veri bulunmaktadır.
+
+## Verinin Üretimi ve Toplanması:
+Veri seti, bir e-ticaret platformunun gerçek işlem kayıtlarından derlenmiştir. Veriler, müşteri satın alma işlemleri sırasında otomatik olarak toplanmış ve anonim hale getirilmiştir.
+
+#### Format: CSV
+
+#### Boyut: Yaklaşık 20 MB
+
+### Veri İthalatı ve Entegrasyon Süreci
+
+#### İthalat Planı:
+
+Veri Temizleme ve Hazırlığı: İlk adımda, veri setindeki eksik değerler temizlenecek ve veri tipleri doğrulanacaktır.
+WordPress'e İthalat: **'WP All Import'** eklentisi kullanılarak CSV dosyası WordPress içeriğine aktarılacak. Ürün bilgileri özel gönderi türleri olarak kaydedilecektir.
+Test ve Doğrulama: Veri yükleme işlemi tamamlandıktan sonra, verilerin doğru bir şekilde WordPress'e aktarıldığı kontrol edilecektir.
+
+
