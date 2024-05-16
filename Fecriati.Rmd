@@ -192,3 +192,113 @@ Projede yapılacak olan veri analizi, özellikle müşteri davranışları ve sa
 
 Bu iyileştirme stratejisi, şirketin genel performansını artırarak rekabet avantajı sağlamayı amaçlamaktadır. Veri analizinin derinlemesine uygulanması, işletme için stratejik karar alma sürecini destekleyecek ve uzun vadeli başarıya katkıda bulunacaktır.
 
+
+## Ön İşleme
+```{r}
+
+# Kütüphaneleri yükle
+library(tidyverse) 
+library(dplyr)
+# tidyverse, tidyr ve dplyr gibi birçok kullanışlı paketi içerir
+
+# Veriyi yükle
+users <- read.csv("C:/Users/Acer/Desktop/donemproje1_fecriati/users.csv", sep = ";", stringsAsFactors = FALSE)
+
+# Veriye genel bakış
+str(users)
+
+# Eksik verileri kontrol et
+summary(users)
+
+# Eksik verileri doldurma veya çıkarma
+users <- users %>%
+  mutate(across(where(is.character), ~ifelse(. == "", NA, .)))  # Boş karakter dizilerini NA ile değiştir
+
+# Eksik verileri kontrol et ve doldur
+users <- users %>%
+  mutate(across(where(is.numeric), ~ifelse(is.na(.), mean(., na.rm = TRUE), .)))
+
+users <- select(users, -c(latitude, longitude, X))
+
+# Sonuçları kontrol et
+summary(users)
+
+write.csv(users, "C:/Users/Acer/Desktop/donemproje1_fecriati/user_yeni.csv", row.names = FALSE)
+```
+
+```{r}
+
+# Kütüphaneleri yükle
+library(tidyverse) 
+library(dplyr)
+# tidyverse, tidyr ve dplyr gibi birçok kullanışlı paketi içerir
+
+# Veriyi yükle
+orders <- read.csv("C:/Users/Acer/Desktop/donemproje1_fecriati/orders.csv", sep = ";", stringsAsFactors = FALSE)
+
+# Veriye genel bakış
+str(orders)
+
+# Eksik verileri kontrol et
+summary(orders)
+
+# Eksik verileri doldurma veya çıkarma
+orders <- orders %>%
+  mutate(across(where(is.character), ~ifelse(. == "", NA, .)))  # Boş karakter dizilerini NA ile değiştir
+
+# Eksik verileri kontrol et ve doldur
+orders <- orders %>%
+  mutate(across(where(is.numeric), ~ifelse(is.na(.), mean(., na.rm = TRUE), .)))
+
+orders <- select(orders, -c(returned_at,shipped_at,delivered_at))
+
+# Sonuçları kontrol et
+summary(orders)
+
+write.csv(orders, "C:/Users/Acer/Desktop/donemproje1_fecriati/order_yeni.csv", row.names = FALSE)
+```
+
+```{r}
+
+# Kütüphaneleri yükle
+library(tidyverse) 
+library(dplyr)
+# tidyverse, tidyr ve dplyr gibi birçok kullanışlı paketi içerir
+
+# Veriyi yükle
+order_items <- read.csv("C:/Users/Acer/Desktop/donemproje1_fecriati/order_items.csv", sep = ";", stringsAsFactors = FALSE)
+
+# Veriye genel bakış
+str(order_items)
+
+# Eksik verileri kontrol et
+summary(order_items)
+
+# Eksik verileri doldurma veya çıkarma
+order_items <- order_items %>%
+  mutate(across(where(is.character), ~ifelse(. == "", NA, .)))  # Boş karakter dizilerini NA ile değiştir
+
+# Eksik verileri kontrol et ve doldur
+order_items <- order_items %>%
+  mutate(across(where(is.numeric), ~ifelse(is.na(.), mean(., na.rm = TRUE), .)))
+
+order_items <- select(order_items, -c(returned_at,shipped_at,delivered_at))
+
+# Normal dağılım ile rastgele fiyatlar oluşturma
+set.seed(123)  # Rastgelelik için çekirdek ayarı
+random_prices <- rnorm(n = nrow(order_items), mean = 200, sd = 50)
+
+# Negatif fiyatları kaldırma
+random_prices <- ifelse(random_prices < 0, 0, random_prices)
+
+# sale_price sütununu güncelleme
+order_items$sale_price <- random_prices
+
+# Sonuçları kontrol et
+summary(order_items)
+
+write.csv(order_items, "C:/Users/Acer/Desktop/donemproje1_fecriati/order_items_yeni.csv", row.names = FALSE)
+```
+
+
+
