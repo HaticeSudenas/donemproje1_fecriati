@@ -1,0 +1,40 @@
+---
+title: |
+  **Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor**
+  
+  *Abdulkadir Gür 190401046*
+  
+  *Hatice Sudenas Çapacı 190401034*
+  
+  *Mert Pamuk 200401056*
+  
+  *Mustafa Koçer 200401030*
+  
+  *Yusuf Talha Kaya 200401042*
+output:
+  html_document:
+    df_print: paged
+---
+
+## Q1 İş Problemi
+
+**E-ticaret sektöründe faaliyet gösteren FECR-I ATI firması**, müşteri memnuniyetini artırmak ve satışları maksimize etmek amacıyla iş süreçlerini ve pazarlama stratejilerini optimize etmek istemektedir. Bu bağlamda, **WordPress** platformunu kullanarak veri analizleri ve müşteri etkileşimleri üzerinden kişiselleştirilmiş pazarlama stratejileri geliştirilecektir.
+
+İlk bulduğumuz veri setinde ürünler ile satış verilerindeki ürünlerin ID'leri uyuşmadığı ve doğru bir analiz yapamayacağımız için veri setini değiştirmek zorunda kaldık.
+
+Projemizde, içerik yönetim sistemi olarak **WordPress** kullanılmaktadır. WordPress'in tercih edilme sebepleri, kullanım kolaylığı, geniş eklenti desteği, güçlü topluluk desteği ve esnek yapısıdır.
+
+### WordPress'i Özel Kılan Özellikler
+
+- **Tema Desteği**: Geniş tema kütüphanesi ile site tasarımı kolayca özelleştirilebilir.
+- **Eklenti Mimarisi**: 50,000'den fazla eklenti ile işlevsellik artırılabilir (örneğin, **WooCommerce** eklentisi).
+- **SEO Optimizasyonu**: SEO dostu yapısı ve çeşitli SEO eklentileri ile arama motorlarında daha üst sıralara çıkmak mümkündür.
+- **REST API Desteği**: Verilerin başka uygulamalara entegre edilmesi ve analiz yapılması sağlanır.
+- **Kullanıcı ve Rol Yönetimi**: Farklı yetkilerle kullanıcı hesapları oluşturulabilir.
+- **Medya Yönetimi**: Görsel ve video dosyaları kolayca yüklenip yönetilebilir.
+- **Çoklu Dil Desteği**: WPML gibi eklentiler ile çok dilli siteler oluşturulabilir.
+
+### İş Süreçlerinde Yararlanılacak Özellikler
+
+- **Veri İthalatı**: Müşteri ve sipariş bilgileri için **WooCommerce REST API**, ürün bilgileri için ise WooCommerce Ürün sekmesi kullanılarak WooCommerce aracılığıyla ithal edilecektir. Verilerin doğru şekilde aktarıldığı test edildikten sonra analiz süreci başlayacaktır.
+- **Verilerin Çekilmesi**: **WooCommerce REST API** kullanılarak ürün, sipariş ve müşteri verileri  çekilecektir. Bu API, verilerin programlı şekilde yönetilmesine ve diğer uygulamalarla entegrasyonuna imkan tanır.
