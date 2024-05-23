@@ -1,0 +1,26 @@
+* using log directory 'C:/Users/Abdulkadir/Desktop/donemproje1_fecriati/Fecriati.Rcheck'
+* using R version 4.3.2 (2023-10-31 ucrt)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* R was compiled by
+    gcc.exe (GCC) 12.3.0
+    GNU Fortran (GCC) 12.3.0
+* running under: Windows 11 x64 (build 22631)
+* using session charset: UTF-8
+* using options '--no-manual --as-cran'
+* checking for file 'Fecriati/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'Fecriati' version '0.1.0'
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking serialization versions ... OK
+* checking whether package 'Fecriati' can be installed ... ERROR
+Installation failed.
+See 'C:/Users/Abdulkadir/Desktop/donemproje1_fecriati/Fecriati.Rcheck/00install.out' for details.
+* DONE
+Status: 1 ERROR

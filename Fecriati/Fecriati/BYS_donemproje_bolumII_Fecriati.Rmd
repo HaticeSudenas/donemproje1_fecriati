@@ -1,0 +1,281 @@
+---
+title: |
+  **Bilgi Yönetim Sistemleri - Bitirme Projesi Rapor**
+  
+  *Abdulkadir Gür 190401046*
+  
+  *Hatice Sudenas Çapacı 190401034*
+  
+  *Mert Pamuk 200401056*
+  
+  *Mustafa Koçer 200401030*
+  
+  *Yusuf Talha Kaya 200401042*
+output:
+  html_document:
+    df_print: paged
+---
+
+## Q1 İş Problemi
+
+**E-ticaret sektöründe faaliyet gösteren FECR-I ATI firması**, müşteri memnuniyetini artırmak ve satışları maksimize etmek amacıyla iş süreçlerini ve pazarlama stratejilerini optimize etmek istemektedir. Bu bağlamda, **WordPress** platformunu kullanarak veri analizleri ve müşteri etkileşimleri üzerinden kişiselleştirilmiş pazarlama stratejileri geliştirilecektir.
+
+İlk bulduğumuz veri setinde ürünler ile satış verilerindeki ürünlerin ID'leri uyuşmadığı ve doğru bir analiz yapamayacağımız için veri setini değiştirmek zorunda kaldık.
+
+Projemizde, içerik yönetim sistemi olarak **WordPress** kullanılmaktadır. WordPress'in tercih edilme sebepleri, kullanım kolaylığı, geniş eklenti desteği, güçlü topluluk desteği ve esnek yapısıdır.
+
+### WordPress'i Özel Kılan Özellikler
+
+- **Tema Desteği**: Geniş tema kütüphanesi ile site tasarımı kolayca özelleştirilebilir.
+- **Eklenti Mimarisi**: 50,000'den fazla eklenti ile işlevsellik artırılabilir (örneğin, **WooCommerce** eklentisi).
+- **SEO Optimizasyonu**: SEO dostu yapısı ve çeşitli SEO eklentileri ile arama motorlarında daha üst sıralara çıkmak mümkündür.
+- **REST API Desteği**: Verilerin başka uygulamalara entegre edilmesi ve analiz yapılması sağlanır.
+- **Kullanıcı ve Rol Yönetimi**: Farklı yetkilerle kullanıcı hesapları oluşturulabilir.
+- **Medya Yönetimi**: Görsel ve video dosyaları kolayca yüklenip yönetilebilir.
+- **Çoklu Dil Desteği**: WPML gibi eklentiler ile çok dilli siteler oluşturulabilir.
+
+### İş Süreçlerinde Yararlanılacak Özellikler
+
+- **Veri İthalatı**: Müşteri ve sipariş bilgileri için **WooCommerce REST API**, ürün bilgileri için ise WooCommerce Ürün sekmesi kullanılarak WooCommerce aracılığıyla ithal edilecektir. Verilerin doğru şekilde aktarıldığı test edildikten sonra analiz süreci başlayacaktır.
+- **Verilerin Çekilmesi**: **WooCommerce REST API** kullanılarak ürün, sipariş ve müşteri verileri  çekilecektir. Bu API, verilerin programlı şekilde yönetilmesine ve diğer uygulamalarla entegrasyonuna imkan tanır.
+
+# Q2 İş Problemi Çözmede Kullanılacak Data Seti
+
+Kaynak: [Bigquery Dataset](https://www.kaggle.com/datasets/mustafakeser4/looker-ecommerce-bigquery-dataset)
+
+
+## "users.csv" Verisi
+
+
+### Verinin Kaynağı
+Veri seti, çeşitli ülkelerden kullanıcı bilgilerini içeren bir veri kümesidir. Veriyi oluşturan kişiler, çeşitli demografik bilgiler, adres bilgileri ve kullanıcı aktiviteleri gibi bilgileri içeren bir veri kümesi oluşturmuştur.
+
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 2000 satır ve 15 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- id: Kullanıcı ID'si
+- first_name: Kullanıcının adı
+- last_name: Kullanıcının soyadı
+- email: Kullanıcının e-posta adresi
+- age: Kullanıcının yaşı
+- gender: Kullanıcının cinsiyeti
+- state: Kullanıcının yaşadığı eyalet/bölge
+- street_address: Kullanıcının sokak adresi
+- postal_code: Kullanıcının posta kodu
+- city: Kullanıcının yaşadığı şehir
+- country: Kullanıcının yaşadığı ülke
+- latitude: Kullanıcının coğrafi enlemi
+- longitude: Kullanıcının coğrafi boylamı
+- traffic_source: Kullanıcının geldiği trafik kaynağı
+- created_at: Kullanıcının oluşturulma tarihi ve saati
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde "longitude" ve "latitude" sütunları uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle silindi ve eksik olan yerler "NA" değeri ile dolduruldu. 
+
+
+
+## "orders.csv" Verisi
+
+
+### Verinin Kaynağı
+Veri seti, e-ticaret işlemlerini içeren bir veri kümesidir. Bu veri seti, örnek satış siparişlerini ve kullanıcı bilgilerini içermektedir.
+
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 2479 satır ve 9 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- order_id: Siparişin benzersiz kimliği
+- user_id: Kullanıcının benzersiz kimliği
+- status: Siparişin durumu (Shipped, Complete, Processing)
+- gender: Kullanıcının cinsiyeti
+- created_at: Siparişin oluşturulma tarihi ve saati
+- returned_at: Ürün iadesi tarihi ve saati
+- shipped_at: Ürünün sevkiyat tarihi ve saati
+- delivered_at: Ürünün teslim tarihi ve saati
+- num_of_item: Siparişteki ürün miktarı
+
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde "returned_at","shipped_at","delivered_at" sütunları uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle silindi ve eksik olan yerler "NA" değeri ile dolduruldu. 
+
+
+
+## "order_items.csv" Verisi
+
+
+### Verinin Kaynağı
+Bu veri seti, e-ticaret işlemlerini içeren bir başka örnek veri kümesidir. Siparişlerin detaylarını ve ürün bilgilerini içermektedir.
+
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 3591 satır ve 11 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- id: Sipariş kaleminin benzersiz kimliği
+- order_id: Siparişin benzersiz kimliği
+- user_id: Kullanıcının benzersiz kimliği
+- product_id: Ürünün benzersiz kimliği
+- inventory_item_id: Stok kaleminin benzersiz kimliği
+- status: Siparişin durumu (Shipped, Complete, Processing)
+- created_at: Sipariş kaleminin oluşturulma tarihi ve saati
+- shipped_at: Sipariş kaleminin sevkiyat tarihi ve saati
+- delivered_at: Sipariş kaleminin teslim tarihi ve saati
+- returned_at: Sipariş kaleminin iade tarihi ve saati
+- sale_price: Ürünün satış fiyatı
+
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde "returned_at","shipped_at","delivered_at" sütunları uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle silindi , eksik olan yerler "NA" değeri ile dolduruldu.
+
+## "products.csv" Verisi
+
+### Verinin Kaynağı
+Veri seti, çeşitli kategorilerdeki ürün bilgilerini içeren bir veri kümesidir. Veriyi oluşturan kişiler, ürün maliyeti, kategori, marka, perakende fiyatı ve dağıtım merkezi bilgilerini içeren bir veri kümesi oluşturmuştur.
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 9 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- id: Ürün ID'si
+- cost: Ürünün maliyeti
+- category: Ürünün kategorisi
+- name: Ürünün adı
+- brand: Ürünün markası
+- retail_price: Ürünün perakende fiyatı
+- department: Ürünün departmanı
+- sku: Ürünün stok kodu
+- distribution_center_id: Dağıtım merkezi ID'si
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde herhangi bir sütun silinmemiştir, eksik olan yerler "NA" değeri ile doldurulmuştur.
+
+
+# Q3 Veri seti keşifsel analizi
+
+#### Kütüphaneleri Yükleme:
+
+- `tidyverse`, `magrittr`, ve `dplyr` kütüphaneleri yüklenir. Bu kütüphaneler veri manipülasyonu ve analizi için kullanılır.
+
+#### Veritabanı Bağlantısını Kurma:
+
+- `connect_to_database` fonksiyonu, veritabanı dosyasının yolunu alır ve bağlantı nesnesini döndürür. Bu fonksiyon `RSQLite` kütüphanesini kullanır.
+
+#### CSV Dosyasını Yükleme:
+
+- `load_data` fonksiyonu, CSV dosyasının yolunu ve ayırıcı karakteri alır ve veri çerçevesini döndürür. Bu fonksiyon `read.csv` fonksiyonunu kullanır.
+
+#### Veriye Genel Bakış ve Eksik Verileri Kontrol Etme:
+
+- `summarize_data` fonksiyonu, veri çerçevesini alır ve genel bir bakış sağlar. 
+
+#### Eksik Verileri Doldurma veya Çıkarma:
+
+- `handle_missing_data` fonksiyonu, veri çerçevesini alır ve eksik verileri işler. Karakter dizilerindeki boş değerleri `NA` ile değiştirir ve sayısal sütunlardaki `NA` değerlerini sütun ortalaması ile doldurur.
+
+#### Gereksiz Kolonları Kaldırma:
+
+- `remove_unnecessary_columns` fonksiyonu, veri çerçevesini ve kaldırılacak sütunların isimlerini alır, ve belirtilen sütunları kaldırarak veri çerçevesini döndürür.
+
+#### Veri Çerçevesini CSV Dosyasına Kaydetme:
+
+- `save_data` fonksiyonu, veri çerçevesini CSV dosyasına kaydeder. Bu fonksiyon `write.csv` fonksiyonunu kullanır.
+
+#### Ana İşlem Fonksiyonu:
+
+- `process_data` fonksiyonu, giriş CSV dosyasının yolunu, çıkış CSV dosyasının yolunu, ayırıcı karakteri ve kaldırılacak sütunların isimlerini alır. Bu fonksiyon, veri yükleme, eksik veri işleme, gereksiz sütunları kaldırma ve sonuçları kaydetme adımlarını içerir.
+
+
+### Bu tablolar düzenlenmiş yeni veri setimizin ilk 10 satırını içermektedir.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(Fecriati)
+library(tidyverse)
+library(magrittr)
+
+db_path <- "Fecriati_Db.sqlite"
+users_path <- "users.csv"
+user_yeni <- "usersyeni.csv"
+
+orders_path <- "orders.csv"
+orders_yeni <- "ordersyeni.csv"
+
+order_items_path <- "order_items.csv"
+order_items_yeni <- "order_items_yeni.csv"
+
+product_path <- "product.csv"
+product_yeni <- "product_yeni.csv"
+
+Fecriati::connect_to_database(db_path = db_path)
+
+# Process users data
+cat("Users Data\n")
+data2 <- Fecriati::process_data(users_path, user_yeni)
+data2
+
+# Process orders data
+cat("Orders Data\n")
+Fecriati::process_data(orders_path, orders_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at"))
+
+# Process order items data
+cat("Order Items Data\n")
+Fecriati::process_data(order_items_path, order_items_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at", "sale_price"))
+
+# Process product data
+cat("Product Data\n")
+Fecriati::process_data(product_path, product_yeni, remove_cols = c("cost"), sep = ",")
+
+# Create graphics
+cat("Graphics\n")
+Fecriati::create_graphics(data = data2)
+
+
+```
+
+#### Bu grafik kullanıcıların yaş dağılımını göstermektedir.Böylece e-Ticaret sitemizin yaş  kitlesini görebilmekteyiz.
+
+
+# Q4 Veri setinin BYS platformuna ithali
+
+## Veri İthalatı
+
+**Users ve order** bilgileri için **WooCommerce REST API**, **product** bilgileri için ise WooCommerce Ürün sekmesi kullanılarak WooCommerce aracılığıyla ithal edildi.
+
+**R Api Script kodları adresi:**
+
+- `donemproje1_fecriati/Fecriati/R/Order_Script_Api.R`
+- `donemproje1_fecriati/Fecriati/R/Users_Script_Api.R`
+
+
+# **Q5: Yapılması Planlanan Veri Analizi**
+
+#### **Veri Birleştirme**
+
+İlk adım olarak, *"users.csv"*, *"orders.csv"* ve *"order_items.csv"* verilerini *"user_id"* veya *"order_id"* gibi **benzersiz bir kimlik** ile birleştirerek zengin bir içerik oluşturulacak.
+
+Veri birleştirme işlemi, müşteri bilgileri ile sipariş bilgilerini bir araya getirerek daha **kapsamlı bir veri seti** oluşturmamıza imkan sağlayacak. Bu, müşteri segmentasyonu, kişiselleştirilmiş pazarlama stratejileri ve müşteri sadakati gibi konuları daha iyi anlamanıza yardımcı olabilir.
+
+#### **Müşteri Satın Alma Alışkanlıklarının Analizi**
+
+Müşteri satın alma alışkanlıklarını analiz etmek için, ürün satış verilerini kullanacağız. Hangi ürünlerin en çok satıldığını ve hangi müşteri segmentlerinin hangi ürünleri tercih ettiğini belirlemek için satış verilerini **görselleştirecek** ve analiz edeceğiz.
+
+#### **Coğrafi Konuma Göre Satışların İncelenmesi**
+
+Coğrafi konuma göre satışları incelemek için *"country"* veya *"city"* sütunlarını kullanarak, verileri belirli **kategorilere veya segmentlere** ayıracağız.
+
+Belirlediğimiz kategorilere göre verileri **gruplayarak** analiz edebileceğiz. Örneğin, her bir ülkeye veya şehre göre toplam satış miktarını analiz edeceğiz. Bu analiz sonucunda coğrafi konumun satışlarımız üzerindeki olumsuz etkilerini tespit edip bu soruna çözüm bulabileceğiz.
+
+
+# Q6: Çalışan Platformun Gösterildiği Sesli Anlatımlı Video
+
+**YouTube Linki:** [https://youtu.be/R6jxV_tuwF4](https://youtu.be/R6jxV_tuwF4)
+
+## Açıklama
+
+Bu bölümde, çalışan platformun nasıl çalıştığını gösteren bir video bulunmaktadır. Video, platformun ana işlevlerini ve kullanıcı arayüzünü detaylı bir şekilde anlatmaktadır.
