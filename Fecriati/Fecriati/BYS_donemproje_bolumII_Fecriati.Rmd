@@ -270,3 +270,12 @@ Müşteri satın alma alışkanlıklarını analiz etmek için, ürün satış v
 Coğrafi konuma göre satışları incelemek için *"country"* veya *"city"* sütunlarını kullanarak, verileri belirli **kategorilere veya segmentlere** ayıracağız.
 
 Belirlediğimiz kategorilere göre verileri **gruplayarak** analiz edebileceğiz. Örneğin, her bir ülkeye veya şehre göre toplam satış miktarını analiz edeceğiz. Bu analiz sonucunda coğrafi konumun satışlarımız üzerindeki olumsuz etkilerini tespit edip bu soruna çözüm bulabileceğiz.
+
+
+# Q6: Çalışan Platformun Gösterildiği Sesli Anlatımlı Video
+
+**YouTube Linki:** [https://youtu.be/R6jxV_tuwF4](https://youtu.be/R6jxV_tuwF4)
+
+## Açıklama
+
+Bu bölümde, çalışan platformun nasıl çalıştığını gösteren bir video bulunmaktadır. Video, platformun ana işlevlerini ve kullanıcı arayüzünü detaylı bir şekilde anlatmaktadır.
