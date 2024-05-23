@@ -38,3 +38,120 @@ Projemizde, içerik yönetim sistemi olarak **WordPress** kullanılmaktadır. Wo
 
 - **Veri İthalatı**: Müşteri ve sipariş bilgileri için **WooCommerce REST API**, ürün bilgileri için ise WooCommerce Ürün sekmesi kullanılarak WooCommerce aracılığıyla ithal edilecektir. Verilerin doğru şekilde aktarıldığı test edildikten sonra analiz süreci başlayacaktır.
 - **Verilerin Çekilmesi**: **WooCommerce REST API** kullanılarak ürün, sipariş ve müşteri verileri  çekilecektir. Bu API, verilerin programlı şekilde yönetilmesine ve diğer uygulamalarla entegrasyonuna imkan tanır.
+
+# Q2 İş Problemi Çözmede Kullanılacak Data Seti
+
+Kaynak: [Bigquery Dataset](https://www.kaggle.com/datasets/mustafakeser4/looker-ecommerce-bigquery-dataset)
+
+
+## "users.csv" Verisi
+
+
+### Verinin Kaynağı
+Veri seti, çeşitli ülkelerden kullanıcı bilgilerini içeren bir veri kümesidir. Veriyi oluşturan kişiler, çeşitli demografik bilgiler, adres bilgileri ve kullanıcı aktiviteleri gibi bilgileri içeren bir veri kümesi oluşturmuştur.
+
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 2000 satır ve 15 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- id: Kullanıcı ID'si
+- first_name: Kullanıcının adı
+- last_name: Kullanıcının soyadı
+- email: Kullanıcının e-posta adresi
+- age: Kullanıcının yaşı
+- gender: Kullanıcının cinsiyeti
+- state: Kullanıcının yaşadığı eyalet/bölge
+- street_address: Kullanıcının sokak adresi
+- postal_code: Kullanıcının posta kodu
+- city: Kullanıcının yaşadığı şehir
+- country: Kullanıcının yaşadığı ülke
+- latitude: Kullanıcının coğrafi enlemi
+- longitude: Kullanıcının coğrafi boylamı
+- traffic_source: Kullanıcının geldiği trafik kaynağı
+- created_at: Kullanıcının oluşturulma tarihi ve saati
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde "longitude" ve "latitude" sütunları uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle silindi ve eksik olan yerler "NA" değeri ile dolduruldu. 
+
+
+
+## "orders.csv" Verisi
+
+
+### Verinin Kaynağı
+Veri seti, e-ticaret işlemlerini içeren bir veri kümesidir. Bu veri seti, örnek satış siparişlerini ve kullanıcı bilgilerini içermektedir.
+
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 2479 satır ve 9 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- order_id: Siparişin benzersiz kimliği
+- user_id: Kullanıcının benzersiz kimliği
+- status: Siparişin durumu (Shipped, Complete, Processing)
+- gender: Kullanıcının cinsiyeti
+- created_at: Siparişin oluşturulma tarihi ve saati
+- returned_at: Ürün iadesi tarihi ve saati
+- shipped_at: Ürünün sevkiyat tarihi ve saati
+- delivered_at: Ürünün teslim tarihi ve saati
+- num_of_item: Siparişteki ürün miktarı
+
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde "returned_at","shipped_at","delivered_at" sütunları uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle silindi ve eksik olan yerler "NA" değeri ile dolduruldu. 
+
+
+
+## "order_items.csv" Verisi
+
+
+### Verinin Kaynağı
+Bu veri seti, e-ticaret işlemlerini içeren bir başka örnek veri kümesidir. Siparişlerin detaylarını ve ürün bilgilerini içermektedir.
+
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 3591 satır ve 11 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- id: Sipariş kaleminin benzersiz kimliği
+- order_id: Siparişin benzersiz kimliği
+- user_id: Kullanıcının benzersiz kimliği
+- product_id: Ürünün benzersiz kimliği
+- inventory_item_id: Stok kaleminin benzersiz kimliği
+- status: Siparişin durumu (Shipped, Complete, Processing)
+- created_at: Sipariş kaleminin oluşturulma tarihi ve saati
+- shipped_at: Sipariş kaleminin sevkiyat tarihi ve saati
+- delivered_at: Sipariş kaleminin teslim tarihi ve saati
+- returned_at: Sipariş kaleminin iade tarihi ve saati
+- sale_price: Ürünün satış fiyatı
+
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde "returned_at","shipped_at","delivered_at" sütunları uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle silindi , eksik olan yerler "NA" değeri ile dolduruldu.
+
+## "products.csv" Verisi
+
+### Verinin Kaynağı
+Veri seti, çeşitli kategorilerdeki ürün bilgilerini içeren bir veri kümesidir. Veriyi oluşturan kişiler, ürün maliyeti, kategori, marka, perakende fiyatı ve dağıtım merkezi bilgilerini içeren bir veri kümesi oluşturmuştur.
+
+### Veri Setinin İçeriği
+*Genel Bakış:* Bu veri seti, 9 sütundan oluşmaktadır.
+
+Veri seti şu sütunlardan oluşmaktadır:
+
+- id: Ürün ID'si
+- cost: Ürünün maliyeti
+- category: Ürünün kategorisi
+- name: Ürünün adı
+- brand: Ürünün markası
+- retail_price: Ürünün perakende fiyatı
+- department: Ürünün departmanı
+- sku: Ürünün stok kodu
+- distribution_center_id: Dağıtım merkezi ID'si
+
+### Veri Setinde Yapılan Değişiklikler
+Bu veri setinde herhangi bir sütun silinmemiştir, eksik olan yerler "NA" değeri ile doldurulmuştur.
