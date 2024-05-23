@@ -1681,6 +1681,147 @@ uygulamalarla entegrasyonuna imkan tanır.</li>
 </ul>
 </div>
 </div>
+<div id="q2-iş-problemi-çözmede-kullanılacak-data-seti" class="section level1">
+<h1>Q2 İş Problemi Çözmede Kullanılacak Data Seti</h1>
+<p>Kaynak: <a href="https://www.kaggle.com/datasets/mustafakeser4/looker-ecommerce-bigquery-dataset">Bigquery
+Dataset</a></p>
+<div id="users.csv-verisi" class="section level2">
+<h2>“users.csv” Verisi</h2>
+<div id="verinin-kaynağı" class="section level3">
+<h3>Verinin Kaynağı</h3>
+<p>Veri seti, çeşitli ülkelerden kullanıcı bilgilerini içeren bir veri
+kümesidir. Veriyi oluşturan kişiler, çeşitli demografik bilgiler, adres
+bilgileri ve kullanıcı aktiviteleri gibi bilgileri içeren bir veri
+kümesi oluşturmuştur.</p>
+</div>
+<div id="veri-setinin-içeriği" class="section level3">
+<h3>Veri Setinin İçeriği</h3>
+<p><em>Genel Bakış:</em> Bu veri seti, 2000 satır ve 15 sütundan
+oluşmaktadır.</p>
+<p>Veri seti şu sütunlardan oluşmaktadır:</p>
+<ul>
+<li>id: Kullanıcı ID’si</li>
+<li>first_name: Kullanıcının adı</li>
+<li>last_name: Kullanıcının soyadı</li>
+<li>email: Kullanıcının e-posta adresi</li>
+<li>age: Kullanıcının yaşı</li>
+<li>gender: Kullanıcının cinsiyeti</li>
+<li>state: Kullanıcının yaşadığı eyalet/bölge</li>
+<li>street_address: Kullanıcının sokak adresi</li>
+<li>postal_code: Kullanıcının posta kodu</li>
+<li>city: Kullanıcının yaşadığı şehir</li>
+<li>country: Kullanıcının yaşadığı ülke</li>
+<li>latitude: Kullanıcının coğrafi enlemi</li>
+<li>longitude: Kullanıcının coğrafi boylamı</li>
+<li>traffic_source: Kullanıcının geldiği trafik kaynağı</li>
+<li>created_at: Kullanıcının oluşturulma tarihi ve saati</li>
+</ul>
+</div>
+<div id="veri-setinde-yapılan-değişiklikler" class="section level3">
+<h3>Veri Setinde Yapılan Değişiklikler</h3>
+<p>Bu veri setinde “longitude” ve “latitude” sütunları uygulamamız için
+gerekli olmaması ve eksik veri barındırması sebebiyle silindi ve eksik
+olan yerler “NA” değeri ile dolduruldu.</p>
+</div>
+</div>
+<div id="orders.csv-verisi" class="section level2">
+<h2>“orders.csv” Verisi</h2>
+<div id="verinin-kaynağı-1" class="section level3">
+<h3>Verinin Kaynağı</h3>
+<p>Veri seti, e-ticaret işlemlerini içeren bir veri kümesidir. Bu veri
+seti, örnek satış siparişlerini ve kullanıcı bilgilerini
+içermektedir.</p>
+</div>
+<div id="veri-setinin-içeriği-1" class="section level3">
+<h3>Veri Setinin İçeriği</h3>
+<p><em>Genel Bakış:</em> Bu veri seti, 2479 satır ve 9 sütundan
+oluşmaktadır.</p>
+<p>Veri seti şu sütunlardan oluşmaktadır:</p>
+<ul>
+<li>order_id: Siparişin benzersiz kimliği</li>
+<li>user_id: Kullanıcının benzersiz kimliği</li>
+<li>status: Siparişin durumu (Shipped, Complete, Processing)</li>
+<li>gender: Kullanıcının cinsiyeti</li>
+<li>created_at: Siparişin oluşturulma tarihi ve saati</li>
+<li>returned_at: Ürün iadesi tarihi ve saati</li>
+<li>shipped_at: Ürünün sevkiyat tarihi ve saati</li>
+<li>delivered_at: Ürünün teslim tarihi ve saati</li>
+<li>num_of_item: Siparişteki ürün miktarı</li>
+</ul>
+</div>
+<div id="veri-setinde-yapılan-değişiklikler-1" class="section level3">
+<h3>Veri Setinde Yapılan Değişiklikler</h3>
+<p>Bu veri setinde “returned_at”,“shipped_at”,“delivered_at” sütunları
+uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle
+silindi ve eksik olan yerler “NA” değeri ile dolduruldu.</p>
+</div>
+</div>
+<div id="order_items.csv-verisi" class="section level2">
+<h2>“order_items.csv” Verisi</h2>
+<div id="verinin-kaynağı-2" class="section level3">
+<h3>Verinin Kaynağı</h3>
+<p>Bu veri seti, e-ticaret işlemlerini içeren bir başka örnek veri
+kümesidir. Siparişlerin detaylarını ve ürün bilgilerini
+içermektedir.</p>
+</div>
+<div id="veri-setinin-içeriği-2" class="section level3">
+<h3>Veri Setinin İçeriği</h3>
+<p><em>Genel Bakış:</em> Bu veri seti, 3591 satır ve 11 sütundan
+oluşmaktadır.</p>
+<p>Veri seti şu sütunlardan oluşmaktadır:</p>
+<ul>
+<li>id: Sipariş kaleminin benzersiz kimliği</li>
+<li>order_id: Siparişin benzersiz kimliği</li>
+<li>user_id: Kullanıcının benzersiz kimliği</li>
+<li>product_id: Ürünün benzersiz kimliği</li>
+<li>inventory_item_id: Stok kaleminin benzersiz kimliği</li>
+<li>status: Siparişin durumu (Shipped, Complete, Processing)</li>
+<li>created_at: Sipariş kaleminin oluşturulma tarihi ve saati</li>
+<li>shipped_at: Sipariş kaleminin sevkiyat tarihi ve saati</li>
+<li>delivered_at: Sipariş kaleminin teslim tarihi ve saati</li>
+<li>returned_at: Sipariş kaleminin iade tarihi ve saati</li>
+<li>sale_price: Ürünün satış fiyatı</li>
+</ul>
+</div>
+<div id="veri-setinde-yapılan-değişiklikler-2" class="section level3">
+<h3>Veri Setinde Yapılan Değişiklikler</h3>
+<p>Bu veri setinde “returned_at”,“shipped_at”,“delivered_at” sütunları
+uygulamamız için gerekli olmaması ve eksik veri barındırması sebebiyle
+silindi , eksik olan yerler “NA” değeri ile dolduruldu.</p>
+</div>
+</div>
+<div id="products.csv-verisi" class="section level2">
+<h2>“products.csv” Verisi</h2>
+<div id="verinin-kaynağı-3" class="section level3">
+<h3>Verinin Kaynağı</h3>
+<p>Veri seti, çeşitli kategorilerdeki ürün bilgilerini içeren bir veri
+kümesidir. Veriyi oluşturan kişiler, ürün maliyeti, kategori, marka,
+perakende fiyatı ve dağıtım merkezi bilgilerini içeren bir veri kümesi
+oluşturmuştur.</p>
+</div>
+<div id="veri-setinin-içeriği-3" class="section level3">
+<h3>Veri Setinin İçeriği</h3>
+<p><em>Genel Bakış:</em> Bu veri seti, 9 sütundan oluşmaktadır.</p>
+<p>Veri seti şu sütunlardan oluşmaktadır:</p>
+<ul>
+<li>id: Ürün ID’si</li>
+<li>cost: Ürünün maliyeti</li>
+<li>category: Ürünün kategorisi</li>
+<li>name: Ürünün adı</li>
+<li>brand: Ürünün markası</li>
+<li>retail_price: Ürünün perakende fiyatı</li>
+<li>department: Ürünün departmanı</li>
+<li>sku: Ürünün stok kodu</li>
+<li>distribution_center_id: Dağıtım merkezi ID’si</li>
+</ul>
+</div>
+<div id="veri-setinde-yapılan-değişiklikler-3" class="section level3">
+<h3>Veri Setinde Yapılan Değişiklikler</h3>
+<p>Bu veri setinde herhangi bir sütun silinmemiştir, eksik olan yerler
+“NA” değeri ile doldurulmuştur.</p>
+</div>
+</div>
+</div>
 
 
 
