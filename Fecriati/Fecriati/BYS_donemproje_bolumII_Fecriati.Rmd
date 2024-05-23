@@ -155,3 +155,88 @@ Veri seti şu sütunlardan oluşmaktadır:
 
 ### Veri Setinde Yapılan Değişiklikler
 Bu veri setinde herhangi bir sütun silinmemiştir, eksik olan yerler "NA" değeri ile doldurulmuştur.
+
+
+# Q3 Veri seti keşifsel analizi
+
+#### Kütüphaneleri Yükleme:
+
+- `tidyverse`, `magrittr`, ve `dplyr` kütüphaneleri yüklenir. Bu kütüphaneler veri manipülasyonu ve analizi için kullanılır.
+
+#### Veritabanı Bağlantısını Kurma:
+
+- `connect_to_database` fonksiyonu, veritabanı dosyasının yolunu alır ve bağlantı nesnesini döndürür. Bu fonksiyon `RSQLite` kütüphanesini kullanır.
+
+#### CSV Dosyasını Yükleme:
+
+- `load_data` fonksiyonu, CSV dosyasının yolunu ve ayırıcı karakteri alır ve veri çerçevesini döndürür. Bu fonksiyon `read.csv` fonksiyonunu kullanır.
+
+#### Veriye Genel Bakış ve Eksik Verileri Kontrol Etme:
+
+- `summarize_data` fonksiyonu, veri çerçevesini alır ve genel bir bakış sağlar. 
+
+#### Eksik Verileri Doldurma veya Çıkarma:
+
+- `handle_missing_data` fonksiyonu, veri çerçevesini alır ve eksik verileri işler. Karakter dizilerindeki boş değerleri `NA` ile değiştirir ve sayısal sütunlardaki `NA` değerlerini sütun ortalaması ile doldurur.
+
+#### Gereksiz Kolonları Kaldırma:
+
+- `remove_unnecessary_columns` fonksiyonu, veri çerçevesini ve kaldırılacak sütunların isimlerini alır, ve belirtilen sütunları kaldırarak veri çerçevesini döndürür.
+
+#### Veri Çerçevesini CSV Dosyasına Kaydetme:
+
+- `save_data` fonksiyonu, veri çerçevesini CSV dosyasına kaydeder. Bu fonksiyon `write.csv` fonksiyonunu kullanır.
+
+#### Ana İşlem Fonksiyonu:
+
+- `process_data` fonksiyonu, giriş CSV dosyasının yolunu, çıkış CSV dosyasının yolunu, ayırıcı karakteri ve kaldırılacak sütunların isimlerini alır. Bu fonksiyon, veri yükleme, eksik veri işleme, gereksiz sütunları kaldırma ve sonuçları kaydetme adımlarını içerir.
+
+
+### Bu tablolar düzenlenmiş yeni veri setimizin ilk 10 satırını içermektedir.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(Fecriati)
+library(tidyverse)
+library(magrittr)
+
+db_path <- "Fecriati_Db.sqlite"
+users_path <- "users.csv"
+user_yeni <- "usersyeni.csv"
+
+orders_path <- "orders.csv"
+orders_yeni <- "ordersyeni.csv"
+
+order_items_path <- "order_items.csv"
+order_items_yeni <- "order_items_yeni.csv"
+
+product_path <- "product.csv"
+product_yeni <- "product_yeni.csv"
+
+Fecriati::connect_to_database(db_path = db_path)
+
+# Process users data
+cat("Users Data\n")
+data2 <- Fecriati::process_data(users_path, user_yeni)
+data2
+
+# Process orders data
+cat("Orders Data\n")
+Fecriati::process_data(orders_path, orders_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at"))
+
+# Process order items data
+cat("Order Items Data\n")
+Fecriati::process_data(order_items_path, order_items_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at"))
+
+# Process product data
+cat("Product Data\n")
+Fecriati::process_data(product_path, product_yeni, remove_cols = c(), sep = ",")
+
+# Create graphics
+cat("Graphics\n")
+Fecriati::create_graphics(data = data2)
+
+
+```
+
+#### Bu grafik kullanıcıların yaş dağılımını göstermektedir.Böylece e-Ticaret sitemizin yaş  kitlesini görebilmekteyiz.
+
