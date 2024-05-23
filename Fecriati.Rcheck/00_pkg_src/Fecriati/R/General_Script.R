@@ -106,3 +106,15 @@ create_graphics <- function(data) {
 }
 
 
+#' Perakende fiyatlarının ilk üç hanesini alır
+#'
+#' @param data Veri çerçevesi.
+#' @return Düzenlenmiş veri çerçevesi.
+#' @export
+get_first_three_digits <- function(data) {
+  data <- data %>%
+    mutate(first_three_digits = as.numeric(substr(as.character(retail_price), 1, 3)))
+  return(data)
+}
+
+

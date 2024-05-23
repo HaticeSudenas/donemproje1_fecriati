@@ -225,11 +225,11 @@ Fecriati::process_data(orders_path, orders_yeni, remove_cols = c("returned_at", 
 
 # Process order items data
 cat("Order Items Data\n")
-Fecriati::process_data(order_items_path, order_items_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at"))
+Fecriati::process_data(order_items_path, order_items_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at", "sale_price"))
 
 # Process product data
 cat("Product Data\n")
-Fecriati::process_data(product_path, product_yeni, remove_cols = c(), sep = ",")
+Fecriati::process_data(product_path, product_yeni, remove_cols = c("cost"), sep = ",")
 
 # Create graphics
 cat("Graphics\n")

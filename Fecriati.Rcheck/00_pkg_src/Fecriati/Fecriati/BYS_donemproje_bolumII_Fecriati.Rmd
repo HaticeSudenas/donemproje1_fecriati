@@ -192,12 +192,13 @@ Bu veri setinde herhangi bir sütun silinmemiştir, eksik olan yerler "NA" değe
 - `process_data` fonksiyonu, giriş CSV dosyasının yolunu, çıkış CSV dosyasının yolunu, ayırıcı karakteri ve kaldırılacak sütunların isimlerini alır. Bu fonksiyon, veri yükleme, eksik veri işleme, gereksiz sütunları kaldırma ve sonuçları kaydetme adımlarını içerir.
 
 
-### Bu tablolar düzenlenmiş yeni veri setimizin ilk 6 satırını içermektedir.
+### Bu tablolar düzenlenmiş yeni veri setimizin ilk 10 satırını içermektedir.
 
-```{r, echo=FALSE , warning=FALSE , message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(Fecriati)
 library(tidyverse)
 library(magrittr)
+
 db_path <- "Fecriati_Db.sqlite"
 users_path <- "users.csv"
 user_yeni <- "usersyeni.csv"
@@ -208,15 +209,30 @@ orders_yeni <- "ordersyeni.csv"
 order_items_path <- "order_items.csv"
 order_items_yeni <- "order_items_yeni.csv"
 
+product_path <- "product.csv"
+product_yeni <- "product_yeni.csv"
+
 Fecriati::connect_to_database(db_path = db_path)
-data2<-Fecriati::process_data(users_path,user_yeni)
 
+# Process users data
+cat("Users Data\n")
+data2 <- Fecriati::process_data(users_path, user_yeni)
+data2
 
-Fecriati::process_data(orders_path,orders_yeni,remove_cols = c("returned_at", "shipped_at","delivered_at"))
+# Process orders data
+cat("Orders Data\n")
+Fecriati::process_data(orders_path, orders_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at"))
 
+# Process order items data
+cat("Order Items Data\n")
+Fecriati::process_data(order_items_path, order_items_yeni, remove_cols = c("returned_at", "shipped_at", "delivered_at", "sale_price"))
 
-Fecriati::process_data(order_items_path,order_items_yeni,remove_cols = c("returned_at", "shipped_at","delivered_at"))
+# Process product data
+cat("Product Data\n")
+Fecriati::process_data(product_path, product_yeni, remove_cols = c("cost"), sep = ",")
 
+# Create graphics
+cat("Graphics\n")
 Fecriati::create_graphics(data = data2)
 
 
